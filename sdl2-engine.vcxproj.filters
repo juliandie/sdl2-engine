@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="src\coure.fon" />
+    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
