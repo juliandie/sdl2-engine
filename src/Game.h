@@ -27,45 +27,48 @@
 # define WINDOW_HEIGTH 600
 # define WINDOW_WIDTH 600
 
-class Game{
+class Game {
 
 private:
-	bool isRunning;
+    bool isRunning;
 
-	SDL_Window* window;
-	SDL_Renderer* renderer;
+    SDL_Window *window;
+    SDL_Renderer *renderer;
 
-	Field field = {};
-	SDL_Rect clicked = {};
-	SDL_Rect camera = {};
+    Field field = {};
+    SDL_Rect clicked = {};
+    SDL_Rect camera = {};
 
 
-	void renderDebug();
-	void renderString(std::string message, int x, int y, int size, TTF_Font* font, SDL_Color color);
-	int getDebugY(int size);
+    void renderDebug();
+    void renderString(std::string message, int x, int y, int size, TTF_Font *font, SDL_Color color);
+    int getDebugY(int size);
 
 public:
-	Game();
-	~Game();
+    Game();
+    ~Game();
 
-	void init(const char* title, int x, int y, int width, int height, int flags);
-	void handleEvents();
-	void update(int tick);
-	void render(int tick);
-	void clean();
+    void init(const char *title, int x, int y, int width, int height, int flags);
+    void handleEvents();
+    void update(int tick);
+    void render(int tick);
+    void clean();
 
-	bool running();
+    bool running();
 
-	int frames = 0;
-	int ticks = 0;
-	float zoom = 1.0f;
+    int frames = 0;
+    int ticks = 0;
+    float zoom = 1.0f;
 
-	static int64_t GetTicks()
-	{
-		return SDL_GetTicks();
+    int scroll = 0;
+    int scrollx = 0;
+    int scrolly = 0;
 
-		//return SDL_GetPerformanceFrequency() * 100.0f;
-	}
+    static int64_t GetTicks() {
+        return SDL_GetTicks();
+
+        //return SDL_GetPerformanceFrequency() * 100.0f;
+    }
 
 
 };
